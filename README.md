@@ -14,6 +14,9 @@ if there are three services named `http-service1`, `http-service2`,
 
 this is a primitive starts with check so be careful.
 
+## license
+see [LICENSE](LICENSE)
+
 ## support
 there is no support for this project
 
