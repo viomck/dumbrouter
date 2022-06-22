@@ -96,7 +96,7 @@ async fn handler(
     let dest_host = dest_host.unwrap();
 
     if dest_host.is_none() {
-        return HttpResponse::BadGateway().body(format!(
+        return HttpResponse::InternalServerError().body(format!(
             "No backend found for service {service}.  (dumbrouter/{VERSION})"
         ));
     }
