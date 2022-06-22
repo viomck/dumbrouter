@@ -215,7 +215,7 @@ async fn dest_host_for_service(
                 .filter(|p| p.ip.is_some() && p.public_port.is_some())
                 .collect::<Vec<_>>();
 
-            if ports.len() != 1 {
+            if ports.len() < 1 {
                 eprintln!(
                     "WARN: Container {} needs 1 eligible port, but has {}!",
                     name,
