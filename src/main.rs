@@ -148,14 +148,24 @@ async fn handler(
 }
 
 fn service_from_host_parts(parts: Vec<String>) -> String {
+    let root = "_root".to_string();
+
     let len = parts.len();
     match len {
         // localhost in localhost
         1 => parts[0].to_string(),
         // _root for example.com
-        2 => "_root".to_string(),
+        2 => root,
         // a.b.c.d in a.b.c.d.example.com
-        _ => parts.split_at(len - 2).0.join("."),
+        _ => {
+            let sub = parts.split_at(len - 2).0.join(".");
+
+            if sub == "www" {
+                root
+            } else {
+                sub
+            }
+        },
     }
 }
 
